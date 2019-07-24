@@ -36,6 +36,7 @@ public class Complex {
 		return times(new Complex(a, b));
 	}
 	public Complex reciprocal() {
+		// 1/(a+bi) = (a-bi)/((a+bi)(a-bi)) = (a-bi)/(a^2 + b^2)
 		double fact = a*a + b*b;
 		return new Complex(a / fact, -b / fact);
 	}
@@ -78,6 +79,8 @@ public class Complex {
 		return new Complex(ea * Math.cos(z.b), ea * Math.sin(z.b));
 	}
 	public static Complex ln(Complex z) {
+		// https://en.wikipedia.org/wiki/Complex_logarithm
+		// since there are an infinite number of possibilites, I take k=0
 		return new Complex(Math.log(z.rad()), z.arg());
 	}
 	public static Complex log(Complex b, Complex z) {
